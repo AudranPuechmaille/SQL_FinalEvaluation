@@ -1,0 +1,9 @@
+USE SCHOOL;
+
+-- Wording and coefficient (expressed as a percentage) of each subject (3 points)
+
+SELECT wording, coef * 100 AS coef_percentage FROM Matter;
+
+-- Sum of coefficients of all subject (3 points)
+
+SELECT SUM(coef) AS total_coef FROM Matter;

@@ -1,0 +1,44 @@
+-- produce the text file, CreateBD.txt, containing the SQL orders allowing the creation of the database and the corresponding tables
+
+DROP DATABASE IF EXISTS SCHOOL;
+CREATE DATABASE SCHOOL;
+USE SCHOOL;
+
+
+CREATE TABLE Matter
+(
+codemat CHAR(10) not null primary key,
+wording VARCHAR(100),
+coef FLOAT
+);
+
+
+CREATE TABLE Student
+(
+numstud INT(11) not null auto_increment primary key,
+name VARCHAR(50),
+firstname VARCHAR(50),
+dateofbirth DATE,
+street VARCHAR(100),
+postalcod VARCHAR(20),
+city VARCHAR(50)
+);
+
+CREATE TABLE Test
+(
+numtest INT(11) not null auto_increment primary key,
+testdate DATE,
+place VARCHAR(100),
+codemat CHAR(10) not null,
+foreign key (codemat) references Matter(codemat)
+);
+
+CREATE TABLE Notation
+(
+score FLOAT,
+numstud INT(11) not null,
+numtest INT(11) not null,
+primary key(numstud, numtest),
+foreign key (numstud) references to Student(numstud),
+foreign key (numtest) references to Test(numtest)
+);
