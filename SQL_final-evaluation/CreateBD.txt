@@ -39,6 +39,6 @@ score FLOAT,
 numstud INT(11) not null,
 numtest INT(11) not null,
 primary key(numstud, numtest),
-foreign key (numstud) references to Student(numstud),
-foreign key (numtest) references to Test(numtest)
+foreign key (numstud) references Student(numstud),
+foreign key (numtest) references Test(numtest)
 );
